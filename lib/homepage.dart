@@ -95,7 +95,6 @@ class _HomePageState extends State<HomePage> {
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.all(20.0),
             child: Material(
-              elevation:10,
               borderRadius: BorderRadius.circular(30),
               color:Color.fromRGBO(255, 233, 233, 1) ,
               child: GNav(

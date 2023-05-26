@@ -94,26 +94,28 @@ class _HomePageState extends State<HomePage> {
           ),
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Material(
+            child: ClipRRect(
               borderRadius: BorderRadius.circular(30),
-              color:Color.fromRGBO(255, 233, 233, 1) ,
-              child: GNav(
-                color:Color.fromARGB(255, 250, 127, 127),
-                backgroundColor:Color.fromRGBO(255, 233, 233, 1) ,
-                tabs: [
-                  GButton(icon: Icons.home_outlined,
-                  text: "Home",
-                  ),
-                  GButton(icon: Icons.shopping_cart_outlined,
-                  text:"Cart",
-                  ),
-                  GButton(icon: Icons.favorite_outline,
-                  text:"Likes",
-                  ),
-                  GButton(icon: Icons.person_2_outlined,
-                  text:"Profile"
-                  )
-                ],
+              child: Material(
+                elevation: 5,
+                child: GNav(
+                  color:Color.fromARGB(255, 250, 127, 127),
+                  backgroundColor:Color.fromRGBO(255, 233, 233, 1) ,
+                  tabs: [
+                    GButton(icon: Icons.home_outlined,
+                    text: "Home",
+                    ),
+                    GButton(icon: Icons.shopping_cart_outlined,
+                    text:"Cart",
+                    ),
+                    GButton(icon: Icons.favorite_outline,
+                    text:"Likes",
+                    ),
+                    GButton(icon: Icons.person_2_outlined,
+                    text:"Profile"
+                    )
+                  ],
+                ),
               ),
             ),
           ),

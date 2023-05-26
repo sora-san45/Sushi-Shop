@@ -13,7 +13,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List sushiList = [
-    ["sushi1.png","Sushi1","\$ 2.6","4.8"],
+    ["sushi1.png","Sake","\$ 2.6","4.8"],
     ["sushi2.png","Sushi2","\$ 3.1","4.0"],
     ["sushi3.png","Sushi3","\$ 2.8","4.1"],
     ["sushi4.png","Sushi4","\$ 3.0","4.2"]
@@ -25,12 +25,67 @@ class _HomePageState extends State<HomePage> {
         backgroundColor: Color.fromARGB(255, 252, 251, 251),
         body:Column(
             children: [
-              SizedBox(height: 290),
+              SizedBox(height: 225),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Padding(
+                  padding: const EdgeInsets.only(left:38),
+                  child: Row(children: [
+                    GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          
+                        });
+                      },
+                      child: Container(
+                        height:40,
+                        width:90,
+                        decoration: BoxDecoration(
+                          color: Color.fromRGBO(255, 233, 233, 1),
+                          borderRadius: BorderRadius.circular(25)
+                        ),
+                        child: Center(child: Text("Maki")),
+                      ),
+                    ),
+                    SizedBox(width:7),
+                    Container(
+                      height:40,
+                      width:90,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(255, 233, 233, 1),
+                        borderRadius: BorderRadius.circular(25)
+                      ),
+                      child: Center(child: Text("Nigiri")),
+                    ),
+                    SizedBox(width:7),
+                    Container(
+                      height:40,
+                      width:90,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(255, 233, 233, 1),
+                        borderRadius: BorderRadius.circular(25)
+                      ),
+                      child: Center(child: Text("Gunkan")),
+                    ),
+                    SizedBox(width:7),
+                    Container(
+                      height:40,
+                      width:90,
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(255, 233, 233, 1),
+                        borderRadius: BorderRadius.circular(25)
+                      ),
+                      child: Center(child: Text("Temaki")),
+                    ),
+                  ],),
+                ),
+              ),
+              SizedBox(height:10),
               Padding(
                 padding: const EdgeInsets.only(left:38.0),
                 child: Container(
                   width:350,
-                  height:350,
+                  height:360,
                   child: GridView.builder(
                       itemCount: 4,
                       scrollDirection: Axis.vertical,
@@ -57,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Positioned(
-                              top:-50,
+                              top:-48,
                             left:7,
                             child: Container(
                               height:115,
@@ -73,9 +128,9 @@ class _HomePageState extends State<HomePage> {
                             child: Column(children: [
                             Text("${sushiList[index][1]}",
                             style:GoogleFonts.hind(
-                              textStyle: TextStyle(fontSize:15,fontWeight: FontWeight.w500)
+                              textStyle: TextStyle(fontSize:17,fontWeight: FontWeight.w500)
                             )),
-                            SizedBox(height:2,),
+                            SizedBox(height:1,),
                             Text("${sushiList[index][2]}",style: TextStyle(fontSize:17,fontWeight: FontWeight.w600),)
                           ],)),
                           Positioned(

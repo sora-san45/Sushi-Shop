@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sushi_shop/sushitile.dart';
-
+import 'package:google_fonts/google_fonts.dart';
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -20,15 +21,16 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.white,
+      resizeToAvoidBottomInset: false,
+        backgroundColor: Color.fromARGB(255, 252, 251, 251),
         body:Column(
             children: [
-              SizedBox(height: 300),
+              SizedBox(height: 290),
               Padding(
                 padding: const EdgeInsets.only(left:38.0),
                 child: Container(
                   width:350,
-                  height:400,
+                  height:350,
                   child: GridView.builder(
                       itemCount: 4,
                       scrollDirection: Axis.vertical,
@@ -46,8 +48,12 @@ class _HomePageState extends State<HomePage> {
                             height:130,
                             width:130,
                             decoration: BoxDecoration(
-                              color:Color.fromARGB(255, 239, 232, 232),
+                              color:Color.fromRGBO(255, 233, 233, 1),
                               borderRadius: BorderRadius.circular(15),
+                              border: Border.all(
+                                color:Color.fromARGB(255, 252, 189, 189),
+                                width:2,
+                              )
                             ),
                           ),
                           Positioned(
@@ -62,19 +68,22 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ),
                           Positioned(
-                            top:72,
+                            top:70,
                             left:12,
                             child: Column(children: [
-                            Text("${sushiList[index][1]}",style: TextStyle(fontSize: 14.5),),
-                            SizedBox(height:6,),
-                            Text("${sushiList[index][2]}",style: TextStyle(fontSize:17,fontWeight: FontWeight.w500),)
+                            Text("${sushiList[index][1]}",
+                            style:GoogleFonts.hind(
+                              textStyle: TextStyle(fontSize:15,fontWeight: FontWeight.w500)
+                            )),
+                            SizedBox(height:2,),
+                            Text("${sushiList[index][2]}",style: TextStyle(fontSize:17,fontWeight: FontWeight.w600),)
                           ],)),
                           Positioned(
                             left:75,
-                            top:92,
+                            top:94,
                             child:Row(children: [
-                            Icon(Icons.star,color: Colors.yellow,),
-                            Text("${sushiList[index][3]}")
+                            Icon(Icons.star,color: Color.fromARGB(255, 254, 186, 78),),
+                            Text("${sushiList[index][3]}",style: TextStyle(fontWeight: FontWeight.w500),)
                           ],))
                           ]
                         );
@@ -82,6 +91,32 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             ],
+          ),
+          bottomNavigationBar: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Material(
+              elevation:10,
+              borderRadius: BorderRadius.circular(30),
+              color:Color.fromRGBO(255, 233, 233, 1) ,
+              child: GNav(
+                color:Color.fromARGB(255, 250, 127, 127),
+                backgroundColor:Color.fromRGBO(255, 233, 233, 1) ,
+                tabs: [
+                  GButton(icon: Icons.home_outlined,
+                  text: "Home",
+                  ),
+                  GButton(icon: Icons.shopping_cart_outlined,
+                  text:"Cart",
+                  ),
+                  GButton(icon: Icons.favorite_outline,
+                  text:"Likes",
+                  ),
+                  GButton(icon: Icons.person_2_outlined,
+                  text:"Profile"
+                  )
+                ],
+              ),
+            ),
           ),
       );
   }

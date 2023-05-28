@@ -41,6 +41,7 @@ class _SushiDetailState extends State<SushiDetail> {
     }
 
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Column(children: [
         Stack(children: [
           Container(
@@ -158,13 +159,18 @@ class _SushiDetailState extends State<SushiDetail> {
                 borderRadius: BorderRadius.circular(30),
               ),
             ),
-            Positioned(left: 20, top: 20, child: Text(
-              "Add to cart",
-              style:TextStyle(
-                fontSize: 15,
-                fontWeight: FontWeight.w500
-              )
-              )),
+            Positioned(left: 20, top: 20, child: 
+            InkWell(
+              onTap: (){
+              },
+              child: Text(
+                "Add to cart",
+                style:TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.w500
+                )
+                ),
+            )),
             Positioned(
                 top: 5,
                 left: 90,

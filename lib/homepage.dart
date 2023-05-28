@@ -6,6 +6,8 @@ import 'package:sushi_shop/sushi_detail.dart';
 import 'package:sushi_shop/sushitile.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'cart.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -30,57 +32,54 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           ClipRRect(
-            borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30)),
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(30),
+                bottomRight: Radius.circular(30)),
             child: Stack(
               children: [
                 Container(
                   height: 170,
-                  width:double.maxFinite,
-                  decoration: BoxDecoration(
-
-                    color:Color.fromARGB(255, 253, 187, 165)
+                  width: double.maxFinite,
+                  decoration:
+                      BoxDecoration(color: Color.fromARGB(255, 253, 187, 165)),
+                ),
+                Positioned(
+                  left: 30,
+                  top: 46,
+                  child: Text(
+                    "Miso",
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                      fontSize: 35,
+                      fontWeight: FontWeight.w500,
+                    )),
                   ),
                 ),
-              Positioned(
-              
-              left:30,
-              top:46,
-              child: Text("Miso",
-              style: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                  fontSize: 35,
-                  fontWeight: FontWeight.w500,
-            
-                )
-              ),
-              ),
-            ),
-            Positioned(
-              left:30,
-              top:87,
-              child: Text("Sushi Bar.",
-              style: GoogleFonts.poppins(
-                textStyle: TextStyle(
-                  fontSize: 25,
-            
-                )
-              ),
-              ),
-            ),
-            Positioned(
-              top:-10,
-              left:170,
-              child: Container(
-              height:200,
-              width:250,
-              decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("lib/images/main.jpg"))
-              ),
-            ))
+                Positioned(
+                  left: 30,
+                  top: 87,
+                  child: Text(
+                    "Sushi Bar.",
+                    style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                      fontSize: 25,
+                    )),
+                  ),
+                ),
+                Positioned(
+                    top: -10,
+                    left: 170,
+                    child: Container(
+                      height: 200,
+                      width: 250,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: AssetImage("lib/images/main.jpg"))),
+                    ))
               ],
             ),
           ),
-          SizedBox(height:40),
+          SizedBox(height: 40),
           Padding(
             padding: const EdgeInsets.only(left: 30),
             child: Container(
@@ -102,16 +101,18 @@ class _HomePageState extends State<HomePage> {
                         height: 40,
                         width: 90,
                         decoration: BoxDecoration(
-                          color: tabIndex==index?Color.fromARGB(255, 252, 189, 189):Color.fromRGBO(255, 233, 233, 1),
-                          borderRadius: BorderRadius.circular(25),
-                          border: Border.all(
-                                  color: Color.fromARGB(255, 252, 189, 189),
-                                  width: 2)
-                        ),
-                        child: Center(child: Text(
+                            color: tabIndex == index
+                                ? Color.fromARGB(255, 252, 189, 189)
+                                : Color.fromRGBO(255, 233, 233, 1),
+                            borderRadius: BorderRadius.circular(25),
+                            border: Border.all(
+                                color: Color.fromARGB(255, 252, 189, 189),
+                                width: 2)),
+                        child: Center(
+                            child: Text(
                           "${categories[index]}",
                           style: TextStyle(fontWeight: FontWeight.w500),
-                          )),
+                        )),
                       ),
                     ),
                   );
@@ -140,11 +141,10 @@ class _HomePageState extends State<HomePage> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => SushiDetail(
-                                      sushiName: sushiList[index][1],
-                                      sushiImage: sushiList[index][0],
-                                      sushiPrice: sushiList[index][2],
-                                      sushiRating:sushiList[index][3]
-                                    )));
+                                    sushiName: sushiList[index][1],
+                                    sushiImage: sushiList[index][0],
+                                    sushiPrice: sushiList[index][2],
+                                    sushiRating: sushiList[index][3])));
                       },
                       child: Stack(
                           fit: StackFit.loose,
@@ -224,7 +224,7 @@ class _HomePageState extends State<HomePage> {
           child: Material(
             elevation: 5,
             child: GNav(
-              tabBackgroundColor:  Color.fromARGB(255, 255, 178, 165),
+              tabBackgroundColor: Color.fromARGB(255, 255, 178, 165),
               color: Color.fromARGB(255, 123, 90, 90),
               backgroundColor: Color.fromARGB(255, 248, 200, 193),
               tabs: [
@@ -235,6 +235,10 @@ class _HomePageState extends State<HomePage> {
                 GButton(
                   icon: Icons.shopping_cart_outlined,
                   text: "Cart",
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Cart()));
+                  },
                 ),
                 GButton(
                   icon: Icons.favorite_outline,

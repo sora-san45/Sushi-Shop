@@ -37,6 +37,7 @@ class _HomePageState extends State<HomePage> {
                   height: 170,
                   width:double.maxFinite,
                   decoration: BoxDecoration(
+
                     color:Color.fromARGB(255, 253, 187, 165)
                   ),
                 ),
@@ -101,15 +102,16 @@ class _HomePageState extends State<HomePage> {
                         height: 40,
                         width: 90,
                         decoration: BoxDecoration(
-                          color: Color.fromRGBO(255, 233, 233, 1),
+                          color: tabIndex==index?Color.fromARGB(255, 252, 189, 189):Color.fromRGBO(255, 233, 233, 1),
                           borderRadius: BorderRadius.circular(25),
-                          border: index == tabIndex
-                              ? Border.all(
+                          border: Border.all(
                                   color: Color.fromARGB(255, 252, 189, 189),
                                   width: 2)
-                              : Border.all(color: Colors.transparent),
                         ),
-                        child: Center(child: Text("${categories[index]}")),
+                        child: Center(child: Text(
+                          "${categories[index]}",
+                          style: TextStyle(fontWeight: FontWeight.w500),
+                          )),
                       ),
                     ),
                   );
@@ -141,6 +143,7 @@ class _HomePageState extends State<HomePage> {
                                       sushiName: sushiList[index][1],
                                       sushiImage: sushiList[index][0],
                                       sushiPrice: sushiList[index][2],
+                                      sushiRating:sushiList[index][3]
                                     )));
                       },
                       child: Stack(
@@ -217,12 +220,13 @@ class _HomePageState extends State<HomePage> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.all(20.0),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(30),
+          borderRadius: BorderRadius.circular(35),
           child: Material(
             elevation: 5,
             child: GNav(
-              color: Color.fromARGB(255, 250, 127, 127),
-              backgroundColor: Color.fromRGBO(255, 233, 233, 1),
+              tabBackgroundColor:  Color.fromARGB(255, 255, 178, 165),
+              color: Color.fromARGB(255, 123, 90, 90),
+              backgroundColor: Color.fromARGB(255, 248, 200, 193),
               tabs: [
                 GButton(
                   icon: Icons.home_outlined,

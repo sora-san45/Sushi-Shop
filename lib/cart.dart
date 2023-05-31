@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sushi_shop/homepage.dart';
+import 'package:sushi_shop/sushi_detail.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -18,34 +20,87 @@ class _CartState extends State<Cart> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 100),
+          SizedBox(height: 60),
           Padding(
-            padding: const EdgeInsets.only(left:35,),
+            padding: const EdgeInsets.only(
+              right: 180,
+            ),
+            child: Text("Your cart",
+                style: GoogleFonts.poppins(
+                    textStyle:
+                        TextStyle(fontSize: 20, fontWeight: FontWeight.w600))),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              left: 35,
+            ),
             child: Container(
-              height:400,
-              width:320,
+              height: 400,
+              width: 320,
               child: ListView(
                 children: [
-                  Stack(
-                    children: [Container(
-                      height:100,
-                      width:320,
-                      decoration: BoxDecoration(
-                        border: Border.all(width:3,color: Color.fromARGB(255, 252, 151, 151)),
-                        borderRadius: BorderRadius.circular(25),
-                        color: Color.fromARGB(255, 255, 212, 212)
-                      ),
-                    ),
-                    Positioned(
-                      child: Container(
-                        height:50,
-                        width:50,
+                  InkWell(
+                    onTap: () {
+                      
+                    },
+                    child: Stack(children: [
+                      Container(
+                        height: 100,
+                        width: 320,
                         decoration: BoxDecoration(
-                          image: DecorationImage(image: AssetImage("lib/images/sushi3.png"))
+                            border: Border.all(
+                                width: 3,
+                                color: Color.fromARGB(172, 252, 151, 151)),
+                            borderRadius: BorderRadius.circular(25),
+                            color: Color.fromARGB(255, 255, 224, 224)),
+                      ),
+                      Positioned(
+                        top: -5,
+                        left: 7,
+                        child: Container(
+                          height: 100,
+                          width: 100,
+                          decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("lib/images/sushi2.png"))),
                         ),
                       ),
-                    )
-                    ]
+                      Positioned(
+                          left: 115,
+                          top: 20,
+                          child: Text("sushi2",
+                              style: TextStyle(
+                                fontSize: 20,
+                              ))),
+                      Positioned(
+                          left: 115,
+                          top: 50,
+                          child: Text("\$3.2",
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold
+                              ))),
+                      Positioned(
+                        left:200,
+                        top:25,
+                        child: Row(children: [
+                          IconButton(onPressed: (){}, icon: Icon(Icons.add)),
+                          Container(
+                            width: 27,
+                            height: 27,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(7),
+                              border: Border.all(
+                                width:2,
+                                color: Color.fromARGB(255, 246, 174, 174)),
+                              color: Color.fromARGB(255, 253, 214, 214),
+                            ),
+                            child: Center(child: Text("0")),
+                          ),
+                          IconButton(onPressed: (){}, icon: Icon(Icons.remove)),
+                        ],),
+                      )
+                    ]),
                   )
                 ],
               ),

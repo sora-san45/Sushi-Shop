@@ -11,7 +11,7 @@ class SushiGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.builder(
-                  itemCount: 4,
+                  itemCount: sushiList.length,
                   scrollDirection: Axis.vertical,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
@@ -54,7 +54,7 @@ class SushiGrid extends StatelessWidget {
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: AssetImage(
-                                            "lib/images/${sushiList[index][0]}"))),
+                                            "${sushiList[index][0]}"))),
                               ),
                             ),
                             Positioned(

@@ -19,21 +19,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  List sushiList = [
-    ["sushi1.png", "Sake", "\$ 2.6", "4.8"],
-    ["sushi2.png", "Sushi2", "\$ 3.1", "4.0"],
-    ["sushi3.png", "Sushi3", "\$ 2.8", "4.1"],
-    ["sushi4.png", "Sushi4", "\$ 3.0", "4.2"]
-  ];
+  
   List gunkan = [
-    ["lib/images/gunkan/gunkan1.png", "Gunkan1", "\$4.2", "4.9"],
-    ["lib/images/gunkan/gunkan2.png", "Gunkan2", "\$4.3", "4.7"]
+    ["lib/gunkan/gunkan1.png", "Gunkan1", "\$4.2", "4.9"],
+    ["lib/gunkan/gunkan2.png", "Gunkan2", "\$4.3", "4.7"]
   ];
   List temaki = [
-    ["lib/images/temaki/temaki1.png", "Temaki1", "\$4.2", "4.9"],
-    ["lib/images/temaki/temaki2.png", "Temaki2", "\$4.3", "4.7"],
-    ["lib/images/temaki/temaki3.png", "Temaki3", "\$4.2", "4.9"],
-    ["lib/images/temaki/temaki4.png", "Temaki4", "\$4.3", "4.7"],
+    ["lib/temaki/temaki1.png", "Temaki1", "\$4.2", "4.9"],
+    ["lib/temaki/temaki2.png", "Temaki2", "\$4.3", "4.7"],
+    ["lib/temaki/temaki3.png", "Temaki3", "\$4.2", "4.9"],
+    ["lib/temaki/temaki4.png", "Temaki4", "\$4.3", "4.7"],
   ];
   List categories = ["All", "Maki", "Nigiri", "Gunkan", "Temaki"];
   int tabIndex = 0;
@@ -140,7 +135,7 @@ class _HomePageState extends State<HomePage> {
               width: 350,
               height: 360,
               child: SushiGrid(
-                sushiList:sushiList,
+                sushiList:gunkan,
               )
             ),
           ),

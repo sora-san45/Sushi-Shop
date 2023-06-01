@@ -5,6 +5,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sushi_shop/sushi_detail.dart';
+import 'package:sushi_shop/sushigrid.dart';
 import 'package:sushi_shop/sushitile.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -25,9 +26,15 @@ class _HomePageState extends State<HomePage> {
     ["sushi4.png", "Sushi4", "\$ 3.0", "4.2"]
   ];
   List gunkan = [
-    ["lib/images/gunkan/gunkan1.png","Gunkan1","\$4.2","4.9"],
-    ["lib/images/gunkan/gunkan2.png","Gunkan2","\$4.3","4.7"]
-    ];
+    ["lib/images/gunkan/gunkan1.png", "Gunkan1", "\$4.2", "4.9"],
+    ["lib/images/gunkan/gunkan2.png", "Gunkan2", "\$4.3", "4.7"]
+  ];
+  List temaki = [
+    ["lib/images/temaki/temaki1.png", "Temaki1", "\$4.2", "4.9"],
+    ["lib/images/temaki/temaki2.png", "Temaki2", "\$4.3", "4.7"],
+    ["lib/images/temaki/temaki3.png", "Temaki3", "\$4.2", "4.9"],
+    ["lib/images/temaki/temaki4.png", "Temaki4", "\$4.3", "4.7"],
+  ];
   List categories = ["All", "Maki", "Nigiri", "Gunkan", "Temaki"];
   int tabIndex = 0;
   @override
@@ -132,93 +139,9 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               width: 350,
               height: 360,
-              child: GridView.builder(
-                  itemCount: 4,
-                  scrollDirection: Axis.vertical,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 15,
-                    crossAxisSpacing: 10,
-                  ),
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => SushiDetail(
-                                    sushiName: sushiList[index][1],
-                                    sushiImage: sushiList[index][0],
-                                    sushiPrice: sushiList[index][2],
-                                    sushiRating: sushiList[index][3])));
-                      },
-                      child: Stack(
-                          fit: StackFit.loose,
-                          clipBehavior: Clip.none,
-                          children: [
-                            Container(
-                              height: 130,
-                              width: 130,
-                              decoration: BoxDecoration(
-                                  color: Color.fromRGBO(255, 233, 233, 1),
-                                  borderRadius: BorderRadius.circular(15),
-                                  border: Border.all(
-                                    color: Color.fromARGB(255, 252, 189, 189),
-                                    width: 2,
-                                  )),
-                            ),
-                            Positioned(
-                              top: -48,
-                              left: 7,
-                              child: Container(
-                                height: 115,
-                                width: 115,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                        image: AssetImage(
-                                            "lib/images/${sushiList[index][0]}"))),
-                              ),
-                            ),
-                            Positioned(
-                                top: 70,
-                                left: 12,
-                                child: Column(
-                                  children: [
-                                    Text("${sushiList[index][1]}",
-                                        style: GoogleFonts.hind(
-                                            textStyle: TextStyle(
-                                                fontSize: 17,
-                                                fontWeight: FontWeight.w500))),
-                                    SizedBox(
-                                      height: 1,
-                                    ),
-                                    Text(
-                                      "${sushiList[index][2]}",
-                                      style: TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.w600),
-                                    )
-                                  ],
-                                )),
-                            Positioned(
-                                left: 75,
-                                top: 94,
-                                child: Row(
-                                  children: [
-                                    Icon(
-                                      Icons.star,
-                                      color: Color.fromARGB(255, 254, 186, 78),
-                                    ),
-                                    Text(
-                                      "${sushiList[index][3]}",
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.w500),
-                                    )
-                                  ],
-                                ))
-                          ]),
-                    );
-                  }),
+              child: SushiGrid(
+                sushiList:sushiList,
+              )
             ),
           ),
         ],

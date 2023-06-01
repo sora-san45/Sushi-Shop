@@ -1,3 +1,5 @@
+import 'dart:core';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
@@ -22,6 +24,10 @@ class _HomePageState extends State<HomePage> {
     ["sushi3.png", "Sushi3", "\$ 2.8", "4.1"],
     ["sushi4.png", "Sushi4", "\$ 3.0", "4.2"]
   ];
+  List gunkan = [
+    ["lib/images/gunkan/gunkan1.png","Gunkan1","\$4.2","4.9"],
+    ["lib/images/gunkan/gunkan2.png","Gunkan2","\$4.3","4.7"]
+    ];
   List categories = ["All", "Maki", "Nigiri", "Gunkan", "Temaki"];
   int tabIndex = 0;
   @override

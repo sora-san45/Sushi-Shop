@@ -18,8 +18,39 @@ class HomePage extends StatefulWidget {
   State<HomePage> createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
-  
+class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
+  int tabIndex = 0;
+  List sushiList = [
+    ["lib/maki/maki1.png", "Maki1", "\$4.2", "4.9"],
+    ["lib/temaki/temaki1.png", "Temaki1", "\$4.2", "4.9"],
+    ["lib/temaki/temaki2.png", "Temaki2", "\$4.3", "4.7"],
+    ["lib/gunkan/gunkan1.png", "Gunkan1", "\$4.2", "4.9"],
+    ["lib/temaki/temaki3.png", "Temaki3", "\$4.2", "4.9"],
+    ["lib/maki/maki2.png", "Maki2", "\$4.3", "4.7"],
+    ["lib/maki/maki3.png", "Maki3", "\$4.2", "4.9"],
+    ["lib/maki/maki4.png", "Maki4", "\$4.3", "4.7"],
+    ["lib/maki/maki5.png", "Maki5", "\$4.2", "4.9"],
+    ["lib/maki/maki6.png", "Maki6", "\$4.3", "4.7"],
+    ["lib/nigiri/nigiri1.png", "Nigiri1", "\$4.2", "4.9"],
+    ["lib/nigiri/nigiri2.png", "Nigiri2", "\$4.3", "4.7"],
+    
+    ["lib/temaki/temaki4.png", "Temaki4", "\$4.3", "4.7"],
+    
+    ["lib/gunkan/gunkan2.png", "Gunkan2", "\$4.3", "4.7"]
+  ];
+
+  List maki = [
+    ["lib/maki/maki1.png", "Maki1", "\$4.2", "4.9"],
+    ["lib/maki/maki2.png", "Maki2", "\$4.3", "4.7"],
+    ["lib/maki/maki3.png", "Maki3", "\$4.2", "4.9"],
+    ["lib/maki/maki4.png", "Maki4", "\$4.3", "4.7"],
+    ["lib/maki/maki5.png", "Maki5", "\$4.2", "4.9"],
+    ["lib/maki/maki6.png", "Maki6", "\$4.3", "4.7"],
+  ];
+  List nigiri = [
+    ["lib/nigiri/nigiri1.png", "Nigiri1", "\$4.2", "4.9"],
+    ["lib/nigiri/nigiri2.png", "Nigiri2", "\$4.3", "4.7"]
+  ];
   List gunkan = [
     ["lib/gunkan/gunkan1.png", "Gunkan1", "\$4.2", "4.9"],
     ["lib/gunkan/gunkan2.png", "Gunkan2", "\$4.3", "4.7"]
@@ -31,9 +62,10 @@ class _HomePageState extends State<HomePage> {
     ["lib/temaki/temaki4.png", "Temaki4", "\$4.3", "4.7"],
   ];
   List categories = ["All", "Maki", "Nigiri", "Gunkan", "Temaki"];
-  int tabIndex = 0;
+
   @override
   Widget build(BuildContext context) {
+    TabController _tabController = TabController(length: 5, vsync: this);
     return Scaffold(
       resizeToAvoidBottomInset: false,
       backgroundColor: Color.fromARGB(255, 255, 255, 255),
@@ -89,55 +121,58 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(height: 40),
           Padding(
-            padding: const EdgeInsets.only(left: 30),
+            padding: const EdgeInsets.only(left: 2),
             child: Container(
-              height: 40,
-              width: 400,
-              child: ListView.builder(
-                itemCount: categories.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return GestureDetector(
-                    onTap: () {
-                      setState(() {
-                        tabIndex = index;
-                      });
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.only(right: 15),
-                      child: Container(
-                        height: 40,
-                        width: 90,
-                        decoration: BoxDecoration(
-                            color: tabIndex == index
-                                ? Color.fromARGB(255, 252, 189, 189)
-                                : Color.fromRGBO(255, 233, 233, 1),
-                            borderRadius: BorderRadius.circular(25),
-                            border: Border.all(
-                                color: Color.fromARGB(255, 252, 189, 189),
-                                width: 2)),
-                        child: Center(
-                            child: Text(
-                          "${categories[index]}",
-                          style: TextStyle(fontWeight: FontWeight.w500),
-                        )),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
+                height: 40,
+                width: 340,
+                decoration: BoxDecoration(
+                  color:Color.fromRGBO(255, 233, 233, 1),
+                  borderRadius: BorderRadius.circular(25),
+                  border: Border.all(width:2,color: Color.fromARGB(255, 255, 152, 152))
+                ),
+                child: TabBar(
+                  unselectedLabelColor: Colors.black,
+                  controller: _tabController,
+                  isScrollable: true,
+                  indicator: BoxDecoration(
+                    borderRadius: BorderRadius.circular(25),
+                    color: Color.fromARGB(255, 255, 152, 152),
+                  ),
+                  tabs: [
+                    Text("All"),
+                    Text("Maki"),
+                    Text("Nigiri"),
+                    Text("Gunkan"),
+                    Text("Temaki")
+                  ],
+                )),
           ),
-          SizedBox(height: 20),
+          SizedBox(height: 30),
           Padding(
             padding: const EdgeInsets.only(left: 38.0),
             child: Container(
-              width: 350,
-              height: 360,
-              child: SushiGrid(
-                sushiList:gunkan,
-              )
-            ),
+                width: 350,
+                height: 360,
+                child: TabBarView(
+                  controller: _tabController,
+                  children: [
+                    SushiGrid(
+                      sushiList: sushiList,
+                    ),
+                    SushiGrid(
+                      sushiList: maki,
+                    ),
+                    SushiGrid(
+                      sushiList: nigiri,
+                    ),
+                    SushiGrid(
+                      sushiList: gunkan,
+                    ),
+                    SushiGrid(
+                      sushiList: temaki,
+                    )
+                  ],
+                )),
           ),
         ],
       ),

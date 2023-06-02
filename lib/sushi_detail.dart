@@ -90,7 +90,7 @@ class _SushiDetailState extends State<SushiDetail> {
               width: 230,
               decoration: BoxDecoration(
                   image: DecorationImage(
-                      image: AssetImage("lib/images/${widget.sushiImage}"))),
+                      image: AssetImage("${widget.sushiImage}"))),
             ),
           ),
         ]),

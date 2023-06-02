@@ -62,7 +62,7 @@ class _CartState extends State<Cart> {
                           width: 100,
                           decoration: BoxDecoration(
                               image: DecorationImage(
-                                  image: AssetImage("lib/images/sushi2.png"))),
+                                  image: AssetImage("lib/maki/maki2.png"))),
                         ),
                       ),
                       Positioned(

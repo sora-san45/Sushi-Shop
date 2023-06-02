@@ -4,7 +4,7 @@ import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 import 'package:sushi_shop/homepage.dart';
-import 'package:sushi_shop/sushi_detail.dart';
+import 'package:sushi_shop/detail_page.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});

@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
-import 'package:sushi_shop/sushi_detail.dart';
+import 'package:sushi_shop/detail_page.dart';
 import 'package:sushi_shop/sushigrid.dart';
 import 'package:sushi_shop/sushitile.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -127,7 +127,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                 width: 340,
                 decoration: BoxDecoration(
                   color:Color.fromRGBO(255, 233, 233, 1),
-                  borderRadius: BorderRadius.circular(25),
+                  borderRadius: BorderRadius.circular(20),
                   border: Border.all(width:2,color: Color.fromARGB(255, 255, 152, 152))
                 ),
                 child: TabBar(
@@ -135,7 +135,7 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
                   controller: _tabController,
                   isScrollable: true,
                   indicator: BoxDecoration(
-                    borderRadius: BorderRadius.circular(25),
+                    borderRadius: BorderRadius.circular(20),
                     color: Color.fromARGB(255, 255, 152, 152),
                   ),
                   tabs: [

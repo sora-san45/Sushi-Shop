@@ -1,5 +1,5 @@
 # Miso Sushi Bar
-A sushi application made with flutter with FastAPI backend
+A sushi application made with flutter and FastAPI backend
 
 A new Flutter project.
 

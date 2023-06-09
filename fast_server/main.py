@@ -10,7 +10,10 @@ class Sushi(BaseModel):
     sushiPrice : float
     sushiRating : float
 
-sushiList=[]
+
+sushiList=[
+    {}
+]
 maki=[]
 nigiri=[]
 gunkan=[]
